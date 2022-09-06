@@ -1,7 +1,7 @@
 package com.devsuperior.dscommerce.DTO;
 
 import com.devsuperior.dscommerce.entities.Product;
-import jakarta.validation.constraints.*;
+import javax.validation.constraints.*;
 
 public class ProductDTO {
 
