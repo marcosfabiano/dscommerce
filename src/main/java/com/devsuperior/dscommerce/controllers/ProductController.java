@@ -1,8 +1,8 @@
 package com.devsuperior.dscommerce.controllers;
 
 import com.devsuperior.dscommerce.DTO.ProductDTO;
+import com.devsuperior.dscommerce.DTO.ProductMinDTO;
 import com.devsuperior.dscommerce.services.ProductService;
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,8 +11,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
-import java.util.List;
 
 @RestController
 @RequestMapping(value = "/products")
@@ -25,8 +25,8 @@ public class ProductController {
         return ResponseEntity.ok(dto);
     }
     @GetMapping
-    public ResponseEntity<Page<ProductDTO>> findAll(Pageable pageable) {
-        Page<ProductDTO> dto = service.findAll(pageable);
+    public ResponseEntity<Page<ProductMinDTO>> findAll(Pageable pageable) {
+        Page<ProductMinDTO> dto = service.findAll(pageable);
         return ResponseEntity.ok(dto);
     }
     @PreAuthorize("hasRole('ROLE_ADMIN')")
